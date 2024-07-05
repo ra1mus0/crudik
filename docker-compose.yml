@@ -1,0 +1,14 @@
+version: "4.0"
+services: 
+  web-server:
+    image: nginx:stable
+    container_name: mynginx
+    volumes:
+      - ./:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    ports:
+      - "8876:80"
+  php:
+    image: php:8.0-fpm
+    volumes:
+      - ./:/var/www
